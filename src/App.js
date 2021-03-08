@@ -20,18 +20,21 @@ class App extends Component {
 
   // State gets turns into props into all these componenets that we pass it down.
   render() {
+
+    const { monsters, searchField } = this.state;
+    const filteredMonsters = monsters.filter(monster => monster.name.toLowerCase().includes(searchField.toLowerCase()));
+
+
     return (
       <div className="App">
         <input
           type="search"
           placeholder="search monsters"
           onChange={(e) =>
-            this.setState({ searchField: e.target.value }, () =>
-              console.log(this.state)
-            )
+            this.setState({ searchField: e.target.value })
           }
         />
-        <CardList monsters={this.state.monsters} />
+        <CardList monsters={filteredMonsters} />
       </div>
     );
   }
