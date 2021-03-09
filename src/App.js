@@ -22,6 +22,7 @@ class App extends Component {
       .then((users) => this.setState({ monsters: users }));
   }
 
+  //A good rule of thumb is this: Use arrow functions on any class methods you define and aren't part of React (i.e. render(), componentDidMount()).
   handleChange = e => {
     this.setState({ searchField: e.target.value });
   };
@@ -35,6 +36,7 @@ class App extends Component {
 
     return (
       <div className="App">
+        <h1> Monsters Rolodex </h1>
         <SearchBox
           placeholder="serach monster"
           handleChange={this.handleChange}
